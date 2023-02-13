@@ -90,7 +90,7 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public static List<ArticleV2> GetArticlesForAPI(string defaultImageURL, string defaultIconURL)
+        public static List<ArticleV2> GetArticlesForAPI(string defaultImageURL, string defaultIconURL, string baseURL, string adminURL)
         {
             try
             {
@@ -106,13 +106,13 @@ namespace UniversalCMS.Website.Functions
                         article.articleId = Convert.ToInt32(row["articleId"]);
                         article.articleDate = Convert.ToDateTime(row["articleDate"]);
                         article.title = row["title"].ToString();
-                        article.articleContent = row["articleContent"].ToString().Replace("../../fileman/", "https://sys.reinertupaz.com/fileman/");
+                        article.articleContent = row["articleContent"].ToString().Replace("../../fileman/", adminURL + "/fileman/");
                         article.dateAdded = Convert.ToDateTime(row["dateAdded"]);
                         article.articleCode = row["articleCode"].ToString();
                         article.isActive = Convert.ToBoolean(row["isActive"]);
-                        article.pubURL = "https://www.reinertupaz.com/article/" + row["articleCode"].ToString();
-                        article.imgURL = AppendAbsoluteURLToImage(StringHelper.GetFirstImageForShare(row["articleContent"].ToString(), defaultImageURL));
-                        article.imgIcon = AppendAbsoluteURLToImage(StringHelper.GetFirstImageIcon(row["articleContent"].ToString(), defaultIconURL));
+                        article.pubURL = baseURL + "/article/" + row["articleCode"].ToString();
+                        article.imgURL = AppendBaseURLToImage(StringHelper.GetFirstImageForShare(row["articleContent"].ToString(), defaultImageURL), baseURL);
+                        article.imgIcon = AppendBaseURLToImage(StringHelper.GetFirstImageIcon(row["articleContent"].ToString(), defaultIconURL), baseURL);
                         articles.Add(article);
                     }
 
@@ -401,12 +401,12 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        private static string AppendAbsoluteURLToImage(string input)
+        private static string AppendBaseURLToImage(string input, string baseURL)
         {
             try
             {
                 input = input.Replace("/Uploadsfileman/", "fileman/Uploads/");
-                return input.Replace("fileman/", "https://sys.reinertupaz.com/fileman/");
+                return input.Replace("fileman/", baseURL + "/fileman/");
             }
             catch (Exception ex)
             {

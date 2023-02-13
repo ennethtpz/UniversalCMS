@@ -37,8 +37,8 @@ public class api : IHttpHandler {
             }
             else if (function == "getarticles")
             {
-                var jsonObj = Newtonsoft.Json.JsonConvert.SerializeObject(RST.Website.Functions.ArticleManagement.GetArticlesForAPI("https://www.reinertupaz.com/images/default_article_pic.jpg", "https://www.reinertupaz.com/images/for%20icon.png"));
-                context.Response.Write(jsonObj);
+                //var jsonObj = Newtonsoft.Json.JsonConvert.SerializeObject(UniversalCMS.Website.Functions.ArticleManagement.GetArticlesForAPI("https://www.reinertupaz.com/images/default_article_pic.jpg", "https://www.reinertupaz.com/images/for%20icon.png"));
+                //context.Response.Write(jsonObj);
             }
         }
         catch (Exception ex)
