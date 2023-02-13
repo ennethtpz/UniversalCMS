@@ -1,0 +1,38 @@
+﻿.login { width:100%; background-color:#ead9be; height:auto; padding:50px;  margin-top:10%;}
+.login-left {width:50%; text-align:right; border-right:1px solid #fff; padding-right:20px; float:left;}
+.login-right {width:50%; text-align:left;  padding-left:20px; float:left; padding-top:1%;}
+
+.top-nav {width:100%; height:67px; background-color:#ead9be; margin-bottom:30px;}
+    .top-nav img {position: relative;
+top: 50%;
+
+
+-moz-transform: translateY(-50%);
+-o-transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+transform: translateY(-50%); left:1%; }
+.greeting {float:left; padding:10px; margin-bottom:20px;}
+.greeting h2 {color:#fff; font-weight:normal; text-align:left; font-size:16px;}
+
+.rp {width:30%; height:auto; border:1px dashed #e5e5e5; overflow:auto; margin:0 auto;}
+
+    .rp > .col-lg-5 {color:#76736e}
+.table-cont {width:30%; margin:0 auto; overflow:auto; border:1px dashed #c3c3c3; margin-top:20px;}
+
+.legend-tbl {width:40%; margin:0 auto; border:1px dashed #c3c3c3; }
+    .legend-tbl td {padding:5px; text-align:center;}
+.legend-tbl2 {width:50%; float:left;}
+.legend-tbl3 {width:50%;float:left;}
+.table-cont th {font-size:16px; color: #000;background:#d8d7d7}
+.table-cont td {text-align:center;}
+@media screen and (max-width:1200px) {
+    
+    .rp {width:60%;}
+    .legend-tbl {width:100%; margin:0 auto;}
+    .table-cont {
+        width: 100%;
+    }
+  
+
+  
+}

@@ -1,0 +1,1155 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    color: #FFF;
+    background-color: rgba(50, 50, 50, 0.92);
+
+    /*background: -webkit-radial-gradient(white 30%, #009766 70%);*/ /* For Safari 5.1 to 6.0 */
+    /*background: -o-radial-gradient(white 30%, #009766 70%);*/ /* For Opera 11.1 to 12.0 */
+    /*background: -moz-radial-gradient(white 30%, #009766 70%);*/ /* For Firefox 3.6 to 15 */
+    /*background: radial-gradient(white 30%, #009766 70%);*/ /* Standard syntax */
+}
+
+ul {
+    margin: 5px;
+    padding-left: 20px;
+}
+
+.BodyContent {
+    background-color: #FFF;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    position: relative;
+    top: -150px;
+    width: 80%;
+    height: auto;
+    margin: auto;
+    z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px -30px 5px;
+    overflow-x: visible;
+    
+}
+
+.BackgroundGradient {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1200px;
+    height: 100%;
+ /*background:url('../img/BackgroundGradient.png') repeat-x;*/
+}
+
+.Border {
+    position: relative;
+    z-index: 1;
+    color: #461717;
+    width: auto;
+
+}
+
+    .Border a {
+        /*color: #461717;*/
+        text-decoration: none;
+    }
+
+        .Border a:visited {
+            color: #461717;
+            text-decoration: underline;
+        }
+
+        .Border a:hover {
+            color: #461717;
+            text-decoration: none;
+        }
+
+.BorderBorder {
+    z-index: 1;
+    position: relative;
+    margin: 0;
+    height: auto;
+}
+
+.BorderTL, .BorderTR, .BorderBL, .BorderBR, .BorderL, .BorderT, .BorderR, .BorderB, .BorderC {
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.BorderTL, .BorderTR, .BorderBL, .BorderBR {
+    width: 35px;
+    height: 35px;
+}
+
+.BorderTL {
+    top: 0;
+    left: 0;
+}
+
+.BorderTR div, .BorderBL div, .BorderBR div {
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    z-index: -1;
+}
+
+.BorderTR div {
+    left: -35px;
+}
+
+.BorderBL div {
+    top: -35px;
+}
+
+.BorderBR div {
+    left: -35px;
+    top: -35px;
+}
+
+.BorderTR {
+    top: 0;
+    right: 0;
+}
+
+.BorderBL {
+    bottom: 0;
+    left: 0;
+}
+
+.BorderBR {
+    bottom: 0;
+    right: 0;
+}
+
+.BorderT, .BorderB {
+    left: 35px;
+    right: 35px;
+    height: 35px;
+}
+
+.BorderT {
+    top: 0;
+    background-image: url('../img/BorderHorizontal.png');
+}
+
+.BorderB {
+    bottom: 0;
+}
+
+    .BorderB div {
+        position: absolute;
+        z-index: -1;
+        top: -35px;
+        height: 70px;
+        width: 100%;
+        background-image: url('../img/BorderHorizontal.png');
+    }
+
+.BorderL, .BorderR {
+    top: 35px;
+    bottom: 35px;
+    width: 35px;
+}
+
+.BorderL {
+    left: 0;
+    background-image: url('../img/BorderVertical.png');
+}
+
+.BorderR {
+    right: 0;
+}
+
+    .BorderR div {
+        position: absolute;
+        z-index: -1;
+        left: -35px;
+        width: 70px;
+        height: 100%;
+        background-image: url('../img/BorderVertical.png');
+    }
+
+.BorderC {
+    left: 35px;
+    right: 35px;
+    bottom: 35px;
+    height: auto;
+    z-index: 1;
+}
+
+.float-right {
+    float: right;
+    height: 90px;
+}
+
+.Header {
+    position: relative;
+    background-repeat: no-repeat;
+    padding: 0;
+    height: 100px;
+    color: #000;
+    top: 0px;
+    left: 0px;
+}
+
+.HeaderTitle {
+    height: 75px;
+    width: 1000px;
+    display: table-cell;
+    vertical-align: Middle;
+    color: #000;
+    font-family: Calibri,Arial,Helvetica,sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+}
+
+    .HeaderTitle h1 a, .HeaderTitle h1 a:link, .HeaderTitle h1 a:visited, .HeaderTitle h1 a:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .HeaderTitle h1 {
+        margin: 0;
+        padding: 0 8px;
+        color: #000;
+        font-family: Calibri,Arial,Helvetica,sans-serif;
+        font-size: 26px;
+        text-decoration: none;
+        font-style: normal;
+        font-weight: bold;
+    }
+
+    .HeaderTitle h2 {
+        margin: 0;
+        padding: 0 8px;
+        font-size: inherit;
+        font-weight: inherit;
+    }
+
+.Menu {
+    background-color: #461717;
+    font-family: 'Roboto', sans-serif;
+    height: 50px;
+    width: 100%;
+    margin-top: -30px;
+}
+
+    .Menu ul {
+        font-family: 'Roboto', sans-serif;
+        list-style-type: none;
+        padding: 0;
+        margin: auto;
+    }
+
+    .Menu li {
+        font-family: 'Roboto', sans-serif;
+        display: inline;
+        padding: 0;
+        margin: auto;
+    }
+    .Menu span {
+        color: #ffffff;
+        border: 1px solid #a5ba17;
+        border-radius: 7px; 
+        width: 100px; 
+        height: 40px; 
+        margin: 5px 5px 5px 5px;
+        background-color: #c5df18;
+    }
+
+.MenuButton, .MenuButtonInput {
+    border: 0;
+    margin: 0;
+    background: transparent url('../img/MenuButtonAnchor.png') no-repeat top left;
+    position: relative;
+    overflow: hidden;
+    height: 33px;
+    padding: 0 0 0 25px;
+    display: inline-block;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    vertical-align: middle;
+    zoom: 1;
+}
+
+    .MenuButton span, .MenuButtonInput span {
+        border: 0;
+        margin: 0;
+        background: transparent url('../img/MenuButton.png') no-repeat right top;
+        display: block;
+        position: relative;
+        color: #000;
+        line-height: 13px;
+    }
+
+    .MenuButton span {
+        padding: 10px 25px 10px 0;
+    }
+
+    .MenuButtonInput span {
+        padding: 0 25px 0 0;
+        height: 33px;
+    }
+
+    .MenuButtonInput input {
+        color: #000;
+        border-style: none;
+        border-color: inherit;
+        border-width: 0;
+        font-family: Calibri,Arial,Helvetica,sans-serif;
+        font-size: 13px;
+        color: inherit;
+        height: 33px;
+        padding: 0 25px;
+        margin: 0 -25px;
+        overflow: visible;
+        cursor: pointer;
+        *left: -25px;
+    }
+
+    .MenuButtonInput::-moz-focus-inner, input[type="reset"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner, input[type="file"] > input[type="button"]::-moz-focus-inner {
+        border: none;
+    }
+
+    .MenuButton, .MenuButton:link, .MenuButton:visited, .MenuButton:hover, .MenuButton:active {
+        text-decoration: none!important;
+        outline: none;
+    }
+
+        .MenuButton:hover, .MenuButtonInput:hover {
+            background-position: left center;
+        }
+
+            .MenuButton:hover span, .MenuButtonInput:hover span {
+                background-position: right center;
+                color: #000;
+            }
+
+        .MenuButton:active, .MenuButtonInput:active {
+            background-position: left bottom;
+        }
+
+            .MenuButton:active span, .MenuButtonInput:active span {
+                background-position: right bottom;
+                color: #000;
+            }
+
+.ActiveMenuButton, .ActiveMenuButtonInput {
+    border: 0;
+    margin: 0;
+    background: transparent url('../img/ActiveMenuButtonAnchor.png') no-repeat top left;
+    position: relative;
+    overflow: hidden;
+    height: 33px;
+    padding: 0 0 0 25px;
+    display: inline-block;
+    color: #000;
+    font-family: Calibri,Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    vertical-align: middle;
+    zoom: 1;
+}
+
+    .ActiveMenuButton span, .ActiveMenuButtonInput span {
+        border: 0;
+        margin: 0;
+        background: transparent url('../img/ActiveMenuButton.png') no-repeat right top;
+        display: block;
+        position: relative;
+        color: #000;
+        line-height: 13px;
+    }
+
+    .ActiveMenuButton span {
+        padding: 10px 25px 10px 0;
+    }
+
+    .ActiveMenuButtonInput span {
+        padding: 0 25px 0 0;
+        height: 33px;
+    }
+
+    .ActiveMenuButtonInput input {
+        color: #000;
+        border-style: none;
+        border-color: inherit;
+        border-width: 0;
+        font-family: Calibri,Arial,Helvetica,sans-serif;
+        font-size: 13px;
+        color: inherit;
+        height: 33px;
+        padding: 0 25px;
+        margin: 0 -25px;
+        overflow: visible;
+        cursor: pointer;
+        *left: -25px;
+    }
+
+    .ActiveMenuButtonInput::-moz-focus-inner, input[type="reset"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner, input[type="file"] > input[type="button"]::-moz-focus-inner {
+        border: none;
+    }
+
+    .ActiveMenuButton, .ActiveMenuButton:link, .ActiveMenuButton:visited, .ActiveMenuButton:hover, .ActiveMenuButton:active {
+        text-decoration: none!important;
+        outline: none;
+    }
+
+        .ActiveMenuButton:hover, .ActiveMenuButtonInput:hover {
+            background-position: left center;
+        }
+
+            .ActiveMenuButton:hover span, .ActiveMenuButtonInput:hover span {
+                background-position: right center;
+                color: #000;
+            }
+
+        .ActiveMenuButton:active, .ActiveMenuButtonInput:active {
+            background-position: left bottom;
+        }
+
+            .ActiveMenuButton:active span, .ActiveMenuButtonInput:active span {
+                background-position: right bottom;
+                color: #000;
+            }
+
+.Columns {
+    overflow: hidden;
+    z-index: 1;
+}
+
+.Column1 {
+    overflow: hidden;
+    float: left;
+    width: 20%;
+}
+
+.Column2 {
+    overflow: hidden;
+    float: right;
+    width: 20%;
+}
+
+.MainColumn {
+    overflow: hidden;
+    z-index: 1;
+}
+
+img {
+    border: 0;
+    margin: auto;
+    overflow: hidden;
+}
+
+h2 {
+    margin: 0;
+}
+
+blockquote {
+    width: 80%;
+    color: #000;
+    border: solid 1px #023C64;
+    background: #FFF;
+    margin: 0 auto;
+    padding: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+    blockquote a, blockquote a:link {
+        color: #000E66!important;
+        text-decoration: underline;
+    }
+
+        blockquote a:visited {
+            color: #000E66!important;
+            text-decoration: underline;
+        }
+
+        blockquote a:hover {
+            color: #000!important;
+            text-decoration: none;
+        }
+
+.Article {
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+    padding: 40px 40px 40px 40px;
+    color: #000;
+    font-family: Calibri,Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    min-height: 750px;
+    height: auto;
+}
+
+    .Article a {
+        color: #000E66;
+        text-decoration: underline;
+    }
+
+        .Article a:visited {
+            color: #000E66;
+            text-decoration: underline;
+        }
+
+        .Article a:hover {
+            color: #000;
+            text-decoration: none;
+        }
+
+.ArticleBorder {
+    z-index: 0;
+    position: relative;
+    margin: 0;
+}
+
+.ArticleTL, .ArticleTR, .ArticleBL, .ArticleBR, .ArticleL, .ArticleT, .ArticleR, .ArticleB, .ArticleC {
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.ArticleTL, .ArticleTR, .ArticleBL, .ArticleBR {
+    width: 17px;
+    height: 17px;
+}
+
+.ArticleTL {
+    top: 0;
+    left: 0;
+    background-image: url('../img/ArticleCorners.png');
+}
+
+.ArticleTR div, .ArticleBL div, .ArticleBR div {
+    height: 34px;
+    width: 34px;
+    position: absolute;
+    z-index: -1;
+    background-image: url('../img/ArticleCorners.png');
+}
+
+.ArticleTR div {
+    left: -17px;
+}
+
+.ArticleBL div {
+    top: -17px;
+}
+
+.ArticleBR div {
+    left: -17px;
+    top: -17px;
+}
+
+.ArticleTR {
+    top: 0;
+    right: 0;
+}
+
+.ArticleBL {
+    bottom: 0;
+    left: 0;
+}
+
+.ArticleBR {
+    bottom: 0;
+    right: 0;
+}
+
+.ArticleT, .ArticleB {
+    left: 17px;
+    right: 17px;
+    height: 17px;
+}
+
+.ArticleT {
+    top: 0;
+    background-image: url('../img/ArticleHorizontal.png');
+}
+
+.ArticleB {
+    bottom: 0;
+}
+
+    .ArticleB div {
+        position: absolute;
+        z-index: -1;
+        top: -17px;
+        height: 34px;
+        width: 100%;
+        background-image: url('../img/ArticleHorizontal.png');
+    }
+
+.ArticleL, .ArticleR {
+    top: 17px;
+    bottom: 17px;
+    width: 17px;
+}
+
+.ArticleL {
+    left: 0;
+    background-image: url('../img/ArticleVertical.png');
+}
+
+.ArticleR {
+    right: 0;
+}
+
+    .ArticleR div {
+        position: absolute;
+        z-index: -1;
+        left: -17px;
+        width: 34px;
+        height: 100%;
+        background-image: url('../img/ArticleVertical.png');
+    }
+
+.ArticleC {
+    left: 17px;
+    top: 17px;
+    right: 17px;
+    bottom: 17px;
+    background-image: url('../img/ArticleCenter.png');
+}
+
+.Article h2 {
+    color: #000;
+    font-family: Calibri,Arial,Helvetica,sans-serif;
+    font-size: 22px;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+}
+
+    .Article h2 a, .Article h2 a:visited {
+        color: #000;
+        text-decoration: none;
+    }
+
+        .Article h2 a:hover {
+            text-decoration: underline;
+        }
+
+.Block {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding: 12px 12px 12px 12px;
+    color: #000;
+    font-size: 13px;
+}
+
+    .Block a {
+        color: #000E66;
+        text-decoration: underline;
+    }
+
+        .Block a:visited {
+            color: #000E66;
+            text-decoration: underline;
+        }
+
+        .Block a:hover {
+            color: #000;
+            text-decoration: none;
+        }
+
+.BlockBorder {
+    z-index: 0;
+    position: relative;
+    margin: 0;
+}
+
+.BlockTL, .BlockTR, .BlockBL, .BlockBR, .BlockL, .BlockT, .BlockR, .BlockB, .BlockC {
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.BlockTL, .BlockTR, .BlockBL, .BlockBR {
+    width: 27px;
+    height: 27px;
+}
+
+.BlockTL {
+    top: 0;
+    left: 0;
+    background-image: url('../img/BlockCorners.png');
+}
+
+.BlockTR div, .BlockBL div, .BlockBR div {
+    height: 54px;
+    width: 54px;
+    position: absolute;
+    z-index: -1;
+    background-image: url('../img/BlockCorners.png');
+}
+
+.BlockTR div {
+    left: -27px;
+}
+
+.BlockBL div {
+    top: -27px;
+}
+
+.BlockBR div {
+    left: -27px;
+    top: -27px;
+}
+
+.BlockTR {
+    top: 0;
+    right: 0;
+}
+
+.BlockBL {
+    bottom: 0;
+    left: 0;
+}
+
+.BlockBR {
+    bottom: 0;
+    right: 0;
+}
+
+.BlockT, .BlockB {
+    left: 27px;
+    right: 27px;
+    height: 27px;
+}
+
+.BlockT {
+    top: 0;
+    background-image: url('../img/BlockHorizontal.png');
+}
+
+.BlockB {
+    bottom: 0;
+}
+
+    .BlockB div {
+        position: absolute;
+        z-index: -1;
+        top: -27px;
+        height: 54px;
+        width: 100%;
+        background-image: url('../img/BlockHorizontal.png');
+    }
+
+.BlockL, .BlockR {
+    top: 27px;
+    bottom: 27px;
+    width: 27px;
+}
+
+.BlockL {
+    left: 0;
+    background-image: url('../img/BlockVertical.png');
+}
+
+.BlockR {
+    right: 0;
+}
+
+    .BlockR div {
+        position: absolute;
+        z-index: -1;
+        left: -27px;
+        width: 54px;
+        height: 100%;
+        background-image: url('../img/BlockVertical.png');
+    }
+
+.BlockC {
+    left: 27px;
+    top: 27px;
+    right: 27px;
+    bottom: 27px;
+    background-image: url('../img/BlockCenter.png');
+}
+
+.BlockHeader {
+    border: 0;
+    margin: 0;
+    background: transparent url('../img/BlockHeaderAnchor.png') no-repeat top left;
+    position: relative;
+    overflow: hidden;
+    height: 23px;
+    padding: 0 0 0 18px;
+    display: block;
+    color: #000;
+    font-family: Calibri,Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    vertical-align: middle;
+    zoom: 1;
+}
+
+    .BlockHeader span {
+        border: 0;
+        margin: 0;
+        background: transparent url('../img/BlockHeader.png') no-repeat right top;
+        display: block;
+        position: relative;
+        color: #000;
+        line-height: 13px;
+    }
+
+    .BlockHeader span {
+        padding: 5px 18px 5px 0;
+    }
+
+.BlockHeader {
+    margin: 0 0 3px 0;
+}
+
+.BlockContentBorder {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding: 5px 5px 5px 5px;
+    color: #000;
+    font-family: Calibri,Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    margin: 5px;
+}
+
+    .BlockContentBorder a {
+        color: #000E66;
+        text-decoration: underline;
+    }
+
+        .BlockContentBorder a:visited {
+            color: #000E66;
+            text-decoration: underline;
+        }
+
+        .BlockContentBorder a:hover {
+            color: #000;
+            text-decoration: none;
+        }
+
+.Button, .ButtonInput {
+    border: 0;
+    margin: 0;
+    background: transparent url('../img/ButtonAnchor.png') no-repeat top left;
+    position: relative;
+    overflow: hidden;
+    height: 29px;
+    padding: 0 0 0 21px;
+    display: inline-block;
+    color: #000;
+    font-size: 13px;
+    vertical-align: middle;
+    zoom: 1;
+}
+
+    .Button span, .ButtonInput span {
+        border: 0;
+        margin: 0;
+        background: transparent url('../img/Button.png') no-repeat right top;
+        display: block;
+        position: relative;
+        color: #000;
+        line-height: 13px;
+    }
+
+    .Button span {
+        padding: 8px 21px 8px 0;
+    }
+
+    .ButtonInput span {
+        padding: 0 21px 0 0;
+        height: 29px;
+    }
+
+    .ButtonInput input {
+        color: #000;
+        border-style: none;
+        border-color: inherit;
+        border-width: 0;
+        font-size: 13px;
+        color: inherit;
+        height: 29px;
+        padding: 0 21px;
+        margin: 0 -21px;
+        overflow: visible;
+        cursor: pointer;
+        *left: -21px;
+    }
+
+    .ButtonInput::-moz-focus-inner, input[type="reset"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner, input[type="file"] > input[type="button"]::-moz-focus-inner {
+        border: none;
+    }
+
+    .Button, .Button:link, .Button:visited, .Button:hover, .Button:active {
+        text-decoration: none!important;
+        outline: none;
+    }
+
+        .Button:hover, .ButtonInput:hover {
+            background-position: left center;
+        }
+
+            .Button:hover span, .ButtonInput:hover span {
+                background-position: right center;
+                color: #000;
+            }
+
+        .Button:active, .ButtonInput:active {
+            background-position: left bottom;
+        }
+
+            .Button:active span, .ButtonInput:active span {
+                background-position: right bottom;
+                color: #000;
+            }
+
+.continueBtn {
+    background: #18b11b;
+}
+
+    .continueBtn:hover {
+        background: #22c024;
+    }
+
+.Footer {
+    color: #000;
+    font-family: Calibri,Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    text-align: Center;
+    background: url('../img/Footer.png') bottom left;
+    overflow: hidden;
+    padding: 5px 5px;
+    border-radius: 5px;
+}
+
+    .Footer a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+        .Footer a:visited {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        .Footer a:hover {
+            color: #000;
+            text-decoration: none;
+        }
+
+.BackLink {
+    text-align: center;
+    display: block;
+    display: block;
+    font-size: 11px;
+    padding: 0 0 12px;
+    color: #FFF;
+}
+
+    .BackLink a {
+        color: #FFF;
+    }
+
+label {
+    float: left;
+    width: 125px;
+    height: 20px;
+}
+
+.validatorone {
+    margin: 0px 0 0 70px;
+    position: absolute;
+    color: #000;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.validatortwo {
+    margin: 0px 0 0 160px;
+    position: absolute;
+    color: #000;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.validatorthree {
+    margin: 0px 0 0 102px;
+    position: absolute;
+    color: #000;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.validatorfour {
+    margin: 0px 0 0 100px;
+    position: absolute;
+    color: #000;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.formvalidator {
+    position: absolute;
+    color: #000;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.formvalidatordefault {
+    color: #000;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.formvalidatorone {
+    margin: 0px 0 0 135px;
+    position: absolute;
+    color: #000;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.formvalidatortwo {
+    margin: 0px 0 0 10px;
+    position: absolute;
+    color: #000;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.formvalidatorthree {
+    margin: 0px 0 0 130px;
+    position: absolute;
+    color: #000;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.popup {
+    width: 680px;
+    height: auto;
+    background-color: #ffffff;
+    border-bottom: 8px solid #461717;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(50, 50, 50, 0.92);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(50, 50, 50, 0.92);
+    box-shadow: 0px 0px 12px 0px rgba(50, 50, 50, 0.92);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+    .popup input[type="submit"] {
+        padding: 5px;
+        outline: none;
+        cursor: pointer;
+        color: #000;
+    }
+
+        .popup input[type="submit"]:active {
+            border-bottom: none;
+            margin-top: 4px;
+            background-color: #461717;
+        }
+
+.ReceiptDate {
+    margin-left: 450px;
+}
+
+.ReceivedFrom {
+    margin-left: 50px;
+}
+
+.vcaBtn {
+    background: #c98309;
+}
+
+    .vcaBtn:hover {
+        background: #d89013;
+    }
+
+input[type=text], input[type=password] {
+    border-left: 1px solid #d1d1d1;
+    border-right: 1px solid #d1d1d1;
+    border-top: 1px solid #c4c4c4;
+    border-bottom: 1px solid #d4d4d4;
+    margin: 5px;
+    padding: 0 10px;
+    color: #404040;
+    background: white;
+    border-radius: 2px;
+    outline: 1px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+    input[type=text]:focus, input[type=password]:focus {
+        outline: 1.5px solid #a5ba17;
+    }
+
+.dropdown{
+    border-left: 1px solid #d1d1d1;
+    border-right: 1px solid #d1d1d1;
+    border-top: 1px solid #c4c4c4;
+    border-bottom: 1px solid #d4d4d4;
+    margin: 5px;
+    padding: 0 10px;
+    color: #404040;
+    background: white;
+    border-radius: 2px;
+    outline: 1px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.dropdown:focus {
+        outline: 1.5px solid #a5ba17;
+    }
+
+.Modal {
+    width: auto;
+    padding: 10px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(50, 50, 50, 0.92);
+    -moz-box-shadow: 0px 0px 12px 0px rgba(50, 50, 50, 0.92);
+    box-shadow: 0px 0px 12px 0px rgba(50, 50, 50, 0.92);
+    border-bottom: 10px solid #461717;
+    border-radius: 20px;
+}
+
+.ModalBG {
+    width: 100%; 
+    height: 100%; 
+    background-color: #332b2e;
+    opacity: 0.5;
+}
+
+.Grdrow {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    width: 800px;
+    height: auto;
+    padding: 7px;
+    z-index: 1;
+    margin: auto;
+}
+
+reminder li {
+    margin-top: auto;
+}

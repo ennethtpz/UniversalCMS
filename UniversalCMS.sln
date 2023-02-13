@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalCMS", "UniversalCMS\UniversalCMS.csproj", "{AB20CD2C-8B4C-44CC-9DEC-0342D846AC9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalCMS.Website", "UniversalCMS.Website\UniversalCMS.Website.csproj", "{BB354480-8004-4289-9400-3BA43401F417}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dbscripts", "dbscripts", "{03F1AA40-073B-4421-8814-3E9B44B068F1}"
+	ProjectSection(SolutionItems) = preProject
+		dbscripts\UniversalCMS.sql = dbscripts\UniversalCMS.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB20CD2C-8B4C-44CC-9DEC-0342D846AC9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB20CD2C-8B4C-44CC-9DEC-0342D846AC9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB20CD2C-8B4C-44CC-9DEC-0342D846AC9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB20CD2C-8B4C-44CC-9DEC-0342D846AC9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB354480-8004-4289-9400-3BA43401F417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB354480-8004-4289-9400-3BA43401F417}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB354480-8004-4289-9400-3BA43401F417}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB354480-8004-4289-9400-3BA43401F417}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20AF9C7C-4332-4AC5-94FA-41D0390FA078}
+	EndGlobalSection
+EndGlobal
