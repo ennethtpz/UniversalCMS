@@ -15,11 +15,12 @@ public partial class subpages_blog_AddEntry : System.Web.UI.Page
             if (txtDate.Text != null && 
                 DateTime.TryParseExact(txtDate.Text.Trim(), "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime dtArticleDate))
             {
-                int newArticleID = ArticleManagement.InsertArticle(txtTitle.Text, dtArticleDate, txtContent.Text);
+                ArticleManager articleManager = new ArticleManager();
+                int newArticleID = articleManager.InsertArticle(txtTitle.Text, dtArticleDate, txtContent.Text);
                 foreach (ListItem li in cbxCategories.Items)
                 {
                     if (li.Selected)
-                        ArticleManagement.InsertCategoryForArticle(newArticleID, int.Parse(li.Value));
+                        articleManager.InsertCategoryForArticle(newArticleID, int.Parse(li.Value));
                 }
                 Response.Redirect("~/manageblogs");
             }

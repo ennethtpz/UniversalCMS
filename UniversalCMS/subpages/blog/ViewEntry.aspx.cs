@@ -9,6 +9,8 @@ public partial class subpages_blog_ViewEntry : System.Web.UI.Page
 {
     int id;
 
+    ArticleManager articleManager = new ArticleManager();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -36,14 +38,14 @@ public partial class subpages_blog_ViewEntry : System.Web.UI.Page
     {
         try
         {
-            Article article = ArticleManagement.GetArticle(articleId);
+            Article article = articleManager.GetArticle(articleId);
             txtArticleCode.Text = article.articleCode;
             txtTitle.Text = article.title;
             txtDate.Text = article.articleDate.ToString("MM/dd/yyyy");
             txtContent.Text = article.articleContent;
             cbxIsActive.Checked = article.isActive;
 
-            List<Category> allCategories = ArticleManagement.GetAllCategories();
+            List<Category> allCategories = articleManager.GetAllCategories();
 
             List<ListItem> cats = new List<ListItem>();
             foreach (Category cat in allCategories)
@@ -55,7 +57,7 @@ public partial class subpages_blog_ViewEntry : System.Web.UI.Page
             }
             cbxCategories.DataBind();
 
-            List<Category> categories = ArticleManagement.GetCategoriesForArticle(id);
+            List<Category> categories = articleManager.GetCategoriesForArticle(id);
             if(categories != null)
             {
                 foreach (Category cat in categories)
@@ -76,8 +78,8 @@ public partial class subpages_blog_ViewEntry : System.Web.UI.Page
     {
         try
         {
-            ArticleManagement.DeleteCategoriesForArticle(id);
-            ArticleManagement.DeleteArticle(id);
+            articleManager.DeleteCategoriesForArticle(id);
+            articleManager.DeleteArticle(id);
             Response.Redirect("~/manageblogs");
         }
         catch (Exception ex)
@@ -94,8 +96,8 @@ public partial class subpages_blog_ViewEntry : System.Web.UI.Page
             if (txtDate.Text != null &&
                 DateTime.TryParseExact(txtDate.Text.Trim(), "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime dtArticleDate))
             {
-                ArticleManagement.UpdateArticle(id, dtArticleDate, txtTitle.Text, txtContent.Text, cbxIsActive.Checked);
-                List<Category> existingCategories = ArticleManagement.GetCategoriesForArticle(id);
+                articleManager.UpdateArticle(id, dtArticleDate, txtTitle.Text, txtContent.Text, cbxIsActive.Checked);
+                List<Category> existingCategories = articleManager.GetCategoriesForArticle(id);
 
                 foreach (ListItem li in cbxCategories.Items)
                 {
@@ -112,10 +114,10 @@ public partial class subpages_blog_ViewEntry : System.Web.UI.Page
                         }
 
                         if (!categoryExists)
-                            ArticleManagement.InsertCategoryForArticle(id, int.Parse(li.Value));
+                            articleManager.InsertCategoryForArticle(id, int.Parse(li.Value));
                     }
                     else
-                        ArticleManagement.DeleteCategoryForArticle(id, int.Parse(li.Value));
+                        articleManager.DeleteCategoryForArticle(id, int.Parse(li.Value));
                 }
 
                 lblAlert.Text = "Article updated!";

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using Functions;
 using Objects;
@@ -14,7 +15,10 @@ public partial class masterpages_main : System.Web.UI.MasterPage
             {
                 User user = (User)Session["user"];
                 if (user != null)
+                {
                     Session.Add("user", user);
+                    loadLogo();
+                }
                 else
                     LogOutAndGoHome();
             }
@@ -31,5 +35,21 @@ public partial class masterpages_main : System.Web.UI.MasterPage
     {
         Session.Clear();
         Response.Redirect("~/home");
+    }
+
+    private void loadLogo()
+    {
+        try
+        {
+            string customLogoURL = ConfigurationManager.AppSettings["logoImgUrl"];
+            if (customLogoURL != null)
+                imgLogo.ImageUrl = customLogoURL;
+            else
+                imgLogo.ImageUrl = "../img/default_1.jpg";
+        }
+        catch 
+        {
+            imgLogo.ImageUrl = "../img/default_1.jpg";
+        }
     }
 }

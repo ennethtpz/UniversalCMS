@@ -16,7 +16,9 @@ namespace Admin.mobile_gallery
             try
             {
                 int articleCode = int.Parse(Request.QueryString["id"]);
-                Article article = ArticleManagement.GetArticle(articleCode);
+
+                ArticleManager articleManager = new ArticleManager();
+                Article article = articleManager.GetArticle(articleCode);
 
                 if (article != null) 
                 {

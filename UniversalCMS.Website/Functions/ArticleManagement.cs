@@ -8,17 +8,63 @@ using System.Data.SqlClient;
 
 namespace UniversalCMS.Website.Functions
 {
-    public static class ArticleManagement
+    public class ArticleManager
     {
         #region Properties
-        private const string keyFromConfig = "conn";
+
+        private string _connStringKey, _baseURL, _adminURL;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Instantiates a new ArticleManager instance. Uses default connection string.
+        /// </summary>
+        public ArticleManager()
+        {
+            _connStringKey = "conn";
+        }
+
+        /// <summary>
+        /// Instantiates a new ArticleManager instance.
+        /// </summary>
+        /// <param name="connStringKey">
+        /// Connection string key from web.config that contains the database for UniversalCMS.
+        /// </param>
+        public ArticleManager(string connStringKey)
+        {
+            _connStringKey = connStringKey;
+        }
+
+        /// <summary>
+        /// Instantiates a new ArticleManager instance.
+        /// </summary>
+        /// <param name="connStringKey">
+        /// Connection string key from web.config that contains the database for UniversalCMS.
+        /// </param>
+        /// <param name="baseURL">
+        /// Base URL for the client website that this will be used on. (e.g. https://www.reinertupaz.com). 
+        /// Take note that there should be no '/' on the end.
+        /// </param>
+        /// <param name="adminURL">
+        /// Base URL of the UniversalCMS instance for this website. (e.g. https://admin.reinertupaz.com).
+        /// Take note that there should be no '/' on the end.
+        /// </param>
+        public ArticleManager(string connStringKey, string baseURL, string adminURL) 
+        {
+            _connStringKey = connStringKey;
+            _baseURL = baseURL;
+            _adminURL = adminURL;
+        }
+
         #endregion
 
         #region Public Methods
 
         #region Articles
 
-        public static Article GetArticle(string articleCode)
+        public Article GetArticle(string articleCode)
         {
             try
             {
@@ -26,7 +72,7 @@ namespace UniversalCMS.Website.Functions
                                            new SqlParameter("@articleCode", articleCode.Trim())
                                        };
 
-                using (DataAccess da = new DataAccess(keyFromConfig))
+                using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     using (DataSet ds = da.ReturnDataSet("SELECT TOP 1 * FROM Articles WHERE articleCode=@articleCode", param))
                     {
@@ -40,7 +86,7 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public static Article GetArticle(int articleId)
+        public Article GetArticle(int articleId)
         {
             try
             {
@@ -48,7 +94,7 @@ namespace UniversalCMS.Website.Functions
                                            new SqlParameter("@articleId", articleId)
                                        };
 
-                using (DataAccess da = new DataAccess(keyFromConfig))
+                using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     using (DataSet ds = da.ReturnDataSet("SELECT TOP 1 * FROM Articles WHERE articleId = @articleId", param))
                     {
@@ -62,13 +108,13 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public static List<Article> GetArticles()
+        public List<Article> GetArticles()
         {
             try
             {
                 List<Article> articles = new List<Article>();
 
-                using (DataAccess da = new DataAccess(keyFromConfig))
+                using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     using (DataSet ds = da.ReturnDataSet("SELECT * FROM Articles ORDER BY dateAdded DESC"))
                     {
@@ -90,13 +136,13 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public static List<ArticleV2> GetArticlesForAPI(string defaultImageURL, string defaultIconURL, string baseURL, string adminURL)
+        public List<ArticleV2> GetArticlesForAPI(string defaultImageURL, string defaultIconURL)
         {
             try
             {
                 List<ArticleV2> articles = new List<ArticleV2>();
 
-                using (DataAccess da = new DataAccess(keyFromConfig))
+                using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     DataSet ds = da.ReturnDataSet("SELECT * FROM Articles ORDER BY dateAdded DESC");
 
@@ -106,13 +152,13 @@ namespace UniversalCMS.Website.Functions
                         article.articleId = Convert.ToInt32(row["articleId"]);
                         article.articleDate = Convert.ToDateTime(row["articleDate"]);
                         article.title = row["title"].ToString();
-                        article.articleContent = row["articleContent"].ToString().Replace("../../fileman/", adminURL + "/fileman/");
+                        article.articleContent = row["articleContent"].ToString().Replace("../../fileman/", _adminURL + "/fileman/");
                         article.dateAdded = Convert.ToDateTime(row["dateAdded"]);
                         article.articleCode = row["articleCode"].ToString();
                         article.isActive = Convert.ToBoolean(row["isActive"]);
-                        article.pubURL = baseURL + "/article/" + row["articleCode"].ToString();
-                        article.imgURL = AppendBaseURLToImage(StringHelper.GetFirstImageForShare(row["articleContent"].ToString(), defaultImageURL), baseURL);
-                        article.imgIcon = AppendBaseURLToImage(StringHelper.GetFirstImageIcon(row["articleContent"].ToString(), defaultIconURL), baseURL);
+                        article.pubURL = _baseURL + "/article/" + row["articleCode"].ToString();
+                        article.imgURL = AppendBaseURLToImage(StringHelper.GetFirstImageForShare(row["articleContent"].ToString(), defaultImageURL), _baseURL);
+                        article.imgIcon = AppendBaseURLToImage(StringHelper.GetFirstImageIcon(row["articleContent"].ToString(), defaultIconURL), _baseURL);
                         articles.Add(article);
                     }
 
@@ -128,11 +174,11 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public static int InsertArticle(string title, DateTime articleDate, string articleContent)
+        public int InsertArticle(string title, DateTime articleDate, string articleContent)
         {
             try
             {
-                using (DataAccess da = new DataAccess(keyFromConfig))
+                using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     SqlParameter[] param = {
                                            new SqlParameter("@title", title.Trim()),
@@ -149,11 +195,11 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public static void UpdateArticle(int articleId, DateTime articleDate, string title, string articleContent, bool isActive)
+        public void UpdateArticle(int articleId, DateTime articleDate, string title, string articleContent, bool isActive)
         {
             try
             {
-                using (DataAccess da = new DataAccess(keyFromConfig))
+                using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     SqlParameter[] param = {
                                         new SqlParameter("@articleId", articleId),
@@ -171,11 +217,11 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public static void DeleteArticle(int articleId)
+        public void DeleteArticle(int articleId)
         {
             try
             {
-                using (DataAccess da = new DataAccess(keyFromConfig))
+                using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     SqlParameter[] param = {
                                            new SqlParameter("@articleId", articleId)
@@ -193,11 +239,11 @@ namespace UniversalCMS.Website.Functions
 
         #region Categories
 
-        public static void InsertCategory(string category)
+        public void InsertCategory(string category)
         {
             try
             {
-                using (DataAccess da = new DataAccess(keyFromConfig))
+                using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     SqlParameter[] param = {
                                            new SqlParameter("@category", category.Trim()),
@@ -211,11 +257,11 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public static void UpdateCategory(int categoryId, string category)
+        public void UpdateCategory(int categoryId, string category)
         {
             try
             {
-                using (DataAccess da = new DataAccess(keyFromConfig))
+                using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     SqlParameter[] param = {
                                             new SqlParameter("@categoryId", categoryId),
@@ -230,11 +276,11 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public static void DeleteCategory(int categoryId)
+        public void DeleteCategory(int categoryId)
         {
             try
             {
-                using (DataAccess da = new DataAccess(keyFromConfig))
+                using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     SqlParameter[] param = {
                                             new SqlParameter("@categoryId", categoryId),
@@ -248,13 +294,13 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public static List<Category> GetAllCategories()
+        public List<Category> GetAllCategories()
         {
             try
             {
                 List<Category> categories = new List<Category>();
 
-                using (DataAccess da = new DataAccess(keyFromConfig))
+                using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     using (DataSet ds = da.ReturnDataSet("SELECT * FROM Categories ORDER BY category"))
                     {
@@ -279,7 +325,7 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public static List<Category> GetCategoriesForArticle(int articleId)
+        public List<Category> GetCategoriesForArticle(int articleId)
         {
             try
             {
@@ -292,7 +338,7 @@ namespace UniversalCMS.Website.Functions
                 strQuery += "INNER JOIN ArticleCategories b ON a.categoryId=b.categoryId ";
                 strQuery += "WHERE b.articleId=@articleId ORDER BY b.refId DESC";
 
-                using (DataAccess da = new DataAccess(keyFromConfig))
+                using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     using (DataSet ds = da.ReturnDataSet(strQuery, param))
                     {
@@ -317,11 +363,11 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public static void InsertCategoryForArticle(int articleId, int categoryId)
+        public void InsertCategoryForArticle(int articleId, int categoryId)
         {
             try
             {
-                using (DataAccess da = new DataAccess(keyFromConfig))
+                using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     SqlParameter[] param = {
                                             new SqlParameter("@articleId", articleId),
@@ -336,11 +382,11 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public static void DeleteCategoryForArticle(int articleId, int categoryId)
+        public void DeleteCategoryForArticle(int articleId, int categoryId)
         {
             try
             {
-                using (DataAccess da = new DataAccess(keyFromConfig))
+                using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     SqlParameter[] param = {
                         new SqlParameter("@articleId", articleId),
@@ -355,11 +401,11 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public static void DeleteCategoriesForArticle(int articleId)
+        public void DeleteCategoriesForArticle(int articleId)
         {
             try
             {
-                using (DataAccess da = new DataAccess(keyFromConfig))
+                using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     SqlParameter[] param = {
                                             new SqlParameter("@articleId", articleId),

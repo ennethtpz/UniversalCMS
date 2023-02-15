@@ -14,7 +14,8 @@ namespace Admin.subpages.blog
         protected void btnAddCategory_Click(object sender, EventArgs e)
         {
             string newCat = txtCategory.Text.Trim();
-            ArticleManagement.InsertCategory(newCat);
+            ArticleManager articleManager = new ArticleManager();
+            articleManager.InsertCategory(newCat);
             grdCategories.DataBind();
             lblAlert.Text = "New category '" + newCat + "' added.";
             txtCategory.Text = string.Empty;
