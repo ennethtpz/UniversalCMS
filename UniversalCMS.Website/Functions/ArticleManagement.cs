@@ -86,6 +86,28 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
+        public Article GetArticleByTitle(string title)
+        {
+            try
+            {
+                SqlParameter[] param = {
+                                           new SqlParameter("@title", title)
+                                       };
+
+                using (DataAccess da = new DataAccess(_connStringKey))
+                {
+                    using (DataSet ds = da.ReturnDataSet("SELECT TOP 1 * FROM Articles WHERE [title]=@title", param))
+                    {
+                        return GetArticleFromDataRow(ds.Tables[0].Rows[0]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public Article GetArticle(int articleId)
         {
             try

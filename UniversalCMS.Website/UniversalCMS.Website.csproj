@@ -60,9 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Functions\ArticleManagement.cs" />
+    <Compile Include="Functions\EventManager.cs" />
     <Compile Include="Objects\Article.cs" />
     <Compile Include="Objects\ArticleV2.cs" />
     <Compile Include="Objects\Category.cs" />
+    <Compile Include="Objects\Event.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

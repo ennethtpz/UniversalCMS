@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33213.308
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33927.289
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalCMS", "UniversalCMS\UniversalCMS.csproj", "{AB20CD2C-8B4C-44CC-9DEC-0342D846AC9B}"
 EndProject
@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalCMS.Website", "Uni
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dbscripts", "dbscripts", "{03F1AA40-073B-4421-8814-3E9B44B068F1}"
 	ProjectSection(SolutionItems) = preProject
+		dbscripts\Events.sql = dbscripts\Events.sql
 		dbscripts\UniversalCMS.sql = dbscripts\UniversalCMS.sql
 	EndProjectSection
 EndProject
