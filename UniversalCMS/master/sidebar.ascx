@@ -46,6 +46,17 @@
                             </ul>
                         </li>
 
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span>File Manager</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="Li4" runat="server"><a href="/fileman/default.aspx" target="_blank"><i class="fa fa-angle-double-right"></i>Manage Files</a></li>
+                            </ul>
+                        </li>
+
 
                       <%--  <li class="treeview">
                             <a href="#">

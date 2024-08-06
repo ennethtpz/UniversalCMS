@@ -9,8 +9,9 @@
 
 
 
-public partial class masterpages_sidebar {
-    
+public partial class masterpages_sidebar
+{
+
     /// <summary>
     /// lnkbtnLogout control.
     /// </summary>
@@ -19,7 +20,7 @@ public partial class masterpages_sidebar {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.LinkButton lnkbtnLogout;
-    
+
     /// <summary>
     /// lnkHome control.
     /// </summary>
@@ -28,7 +29,7 @@ public partial class masterpages_sidebar {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkHome;
-    
+
     /// <summary>
     /// liManageAccounts control.
     /// </summary>
@@ -37,7 +38,7 @@ public partial class masterpages_sidebar {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.HtmlControls.HtmlGenericControl liManageAccounts;
-    
+
     /// <summary>
     /// liManagePageAccess control.
     /// </summary>
@@ -46,7 +47,7 @@ public partial class masterpages_sidebar {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.HtmlControls.HtmlGenericControl liManagePageAccess;
-    
+
     /// <summary>
     /// Li1 control.
     /// </summary>
@@ -55,7 +56,7 @@ public partial class masterpages_sidebar {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li1;
-    
+
     /// <summary>
     /// Li2 control.
     /// </summary>
@@ -64,7 +65,7 @@ public partial class masterpages_sidebar {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li2;
-    
+
     /// <summary>
     /// Li3 control.
     /// </summary>
@@ -73,4 +74,13 @@ public partial class masterpages_sidebar {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li3;
+
+    /// <summary>
+    /// Li4 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li4;
 }
