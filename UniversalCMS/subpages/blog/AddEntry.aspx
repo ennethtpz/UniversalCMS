@@ -65,10 +65,10 @@
                         <asp:RequiredFieldValidator ControlToValidate="txtTitle" ID="RequiredFieldValidator1" runat="server" ErrorMessage="Enter title" ForeColor="Red" Display="Dynamic" ValidationGroup="add"></asp:RequiredFieldValidator>
                     </div>
 
-                    <%--<div class="form-group">
-                        <label>Main URL Identifier (Optional): </label>
-                        <asp:TextBox ID="txtURLId" CssClass="form-control awesomplete" MaxLength="250" runat="server"></asp:TextBox>
-                    </div>--%>
+                    <div class="form-group">
+                        <label>Page ID: </label>
+                        <asp:TextBox ID="txtPageId" CssClass="form-control awesomplete" MaxLength="250" runat="server"></asp:TextBox>
+                    </div>
 
                     <div class="form-group">
                         <label>Date: </label>

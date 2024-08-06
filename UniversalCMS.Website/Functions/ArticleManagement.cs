@@ -64,6 +64,28 @@ namespace UniversalCMS.Website.Functions
 
         #region Articles
 
+        public Article GetArticleByPageId(string pageId)
+        {
+            try
+            {
+                SqlParameter[] param = {
+                                           new SqlParameter("@pageId", pageId.Trim())
+                                       };
+
+                using (DataAccess da = new DataAccess(_connStringKey))
+                {
+                    using (DataSet ds = da.ReturnDataSet("SELECT TOP 1 * FROM Articles WHERE pageId=@pageId", param))
+                    {
+                        return GetArticleFromDataRow(ds.Tables[0].Rows[0]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public Article GetArticle(string articleCode)
         {
             try
@@ -159,6 +181,10 @@ namespace UniversalCMS.Website.Functions
                         article.pubURL = _baseURL + "/article/" + row["articleCode"].ToString();
                         article.imgURL = AppendBaseURLToImage(StringHelper.GetFirstImageForShare(row["articleContent"].ToString(), defaultImageURL), _baseURL);
                         article.imgIcon = AppendBaseURLToImage(StringHelper.GetFirstImageIcon(row["articleContent"].ToString(), defaultIconURL), _baseURL);
+                        
+                        if (row["pageId"] != null)
+                            article.pageId = row["pageId"].ToString();
+                        
                         articles.Add(article);
                     }
 
@@ -174,18 +200,26 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public int InsertArticle(string title, DateTime articleDate, string articleContent)
+        public int InsertArticle(string title, DateTime articleDate, string articleContent, string pageId = null)
         {
             try
             {
                 using (DataAccess da = new DataAccess(_connStringKey))
                 {
-                    SqlParameter[] param = {
-                                           new SqlParameter("@title", title.Trim()),
-                                           new SqlParameter("@articleDate", articleDate),
-                                           new SqlParameter("@articleContent", articleContent.Trim())
-                                       };
-                    int newID = da.ReturnIndex("INSERT INTO Articles (title, articleDate, articleContent) VALUES (@title, @articleDate, @articleContent)", param);
+                    var sqlParams = new List<SqlParameter>();
+                    sqlParams.Add(new SqlParameter("@title", title.Trim()));
+                    sqlParams.Add(new SqlParameter("@articleDate", articleDate));
+                    sqlParams.Add(new SqlParameter("@articleContent", articleContent.Trim()));
+
+                    string strQuery = "INSERT INTO Articles (title, articleDate, articleContent) VALUES (@title, @articleDate, @articleContent)";
+
+                    if (!string.IsNullOrWhiteSpace(pageId))
+                    {
+                        strQuery = "INSERT INTO Articles (title, articleDate, articleContent, pageId) VALUES (@title, @articleDate, @articleContent, @pageId)";
+                        sqlParams.Add(new SqlParameter("@pageId", pageId));
+                    }
+                        
+                    int newID = da.ReturnIndex(strQuery, sqlParams.ToArray());
                     return newID;
                 }
             }
@@ -195,20 +229,30 @@ namespace UniversalCMS.Website.Functions
             }
         }
 
-        public void UpdateArticle(int articleId, DateTime articleDate, string title, string articleContent, bool isActive)
+        public void UpdateArticle(int articleId, DateTime articleDate, string title, string articleContent, bool isActive, string pageId = null)
         {
             try
             {
                 using (DataAccess da = new DataAccess(_connStringKey))
                 {
-                    SqlParameter[] param = {
-                                        new SqlParameter("@articleId", articleId),
-                                        new SqlParameter("@articleDate", articleDate),
-                                        new SqlParameter("@title", title.Trim()),
-                                        new SqlParameter("@articleContent", articleContent.Trim()),
-                                        new SqlParameter("@isActive", isActive),
-                                    };
-                    da.ExecuteNonQuery("UPDATE Articles SET title=@title, articleDate=@articleDate, articleContent=@articleContent, isActive=@isActive WHERE articleId=@articleId", param);
+                    var sqlParams = new List<SqlParameter>();
+                    sqlParams.Add(new SqlParameter("@articleId", articleId));
+                    sqlParams.Add(new SqlParameter("@articleDate", articleDate));
+                    sqlParams.Add(new SqlParameter("@title", title.Trim()));
+                    sqlParams.Add(new SqlParameter("@articleContent", articleContent.Trim()));
+                    sqlParams.Add(new SqlParameter("@isActive", isActive));
+
+                    string strQuery = "UPDATE Articles SET title=@title, articleDate=@articleDate, articleContent=@articleContent, isActive=@isActive";
+
+                    if (!string.IsNullOrWhiteSpace(pageId))
+                    {
+                        strQuery += ", pageId=@pageId"; 
+                        sqlParams.Add(new SqlParameter("@pageId", pageId));
+                    }
+
+                    strQuery += " WHERE articleId=@articleId";
+
+                    da.ExecuteNonQuery(strQuery, sqlParams.ToArray());
                 }
             }
             catch (Exception ex)
@@ -439,6 +483,10 @@ namespace UniversalCMS.Website.Functions
                     articleCode = row["articleCode"].ToString(),
                     isActive = Convert.ToBoolean(row["isActive"]),
                 };
+
+                if (row["pageId"] != null)
+                    article.pageId = row["pageId"].ToString();
+
                 return article;
             }
             catch (Exception ex)

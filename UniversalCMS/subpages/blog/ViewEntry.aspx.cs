@@ -45,6 +45,9 @@ public partial class subpages_blog_ViewEntry : System.Web.UI.Page
             txtContent.Text = article.articleContent;
             cbxIsActive.Checked = article.isActive;
 
+            if (!string.IsNullOrEmpty(article.pageId))
+                txtPageId.Text = article.pageId;
+
             List<Category> allCategories = articleManager.GetAllCategories();
 
             List<ListItem> cats = new List<ListItem>();
@@ -96,7 +99,7 @@ public partial class subpages_blog_ViewEntry : System.Web.UI.Page
             if (txtDate.Text != null &&
                 DateTime.TryParseExact(txtDate.Text.Trim(), "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime dtArticleDate))
             {
-                articleManager.UpdateArticle(id, dtArticleDate, txtTitle.Text, txtContent.Text, cbxIsActive.Checked);
+                articleManager.UpdateArticle(id, dtArticleDate, txtTitle.Text, txtContent.Text, cbxIsActive.Checked, txtPageId.Text);
                 List<Category> existingCategories = articleManager.GetCategoriesForArticle(id);
 
                 foreach (ListItem li in cbxCategories.Items)

@@ -16,7 +16,7 @@ public partial class subpages_blog_AddEntry : System.Web.UI.Page
                 DateTime.TryParseExact(txtDate.Text.Trim(), "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime dtArticleDate))
             {
                 ArticleManager articleManager = new ArticleManager();
-                int newArticleID = articleManager.InsertArticle(txtTitle.Text, dtArticleDate, txtContent.Text);
+                int newArticleID = articleManager.InsertArticle(txtTitle.Text, dtArticleDate, txtContent.Text, txtPageId.Text);
                 foreach (ListItem li in cbxCategories.Items)
                 {
                     if (li.Selected)

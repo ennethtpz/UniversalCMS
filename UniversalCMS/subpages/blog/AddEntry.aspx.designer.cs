@@ -9,8 +9,9 @@
 
 
 
-public partial class subpages_blog_AddEntry {
-    
+public partial class subpages_blog_AddEntry
+{
+
     /// <summary>
     /// menu control.
     /// </summary>
@@ -19,7 +20,7 @@ public partial class subpages_blog_AddEntry {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::masterpages_sidebar menu;
-    
+
     /// <summary>
     /// txtTitle control.
     /// </summary>
@@ -28,7 +29,7 @@ public partial class subpages_blog_AddEntry {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.TextBox txtTitle;
-    
+
     /// <summary>
     /// RequiredFieldValidator1 control.
     /// </summary>
@@ -37,7 +38,16 @@ public partial class subpages_blog_AddEntry {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-    
+
+    /// <summary>
+    /// txtPageId control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtPageId;
+
     /// <summary>
     /// txtDate control.
     /// </summary>
@@ -46,7 +56,7 @@ public partial class subpages_blog_AddEntry {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.TextBox txtDate;
-    
+
     /// <summary>
     /// MaskedEditExtender2 control.
     /// </summary>
@@ -55,7 +65,7 @@ public partial class subpages_blog_AddEntry {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender2;
-    
+
     /// <summary>
     /// RequiredFieldValidator7 control.
     /// </summary>
@@ -64,7 +74,7 @@ public partial class subpages_blog_AddEntry {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
-    
+
     /// <summary>
     /// txtContent control.
     /// </summary>
@@ -73,7 +83,7 @@ public partial class subpages_blog_AddEntry {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::CKEditor.NET.CKEditorControl txtContent;
-    
+
     /// <summary>
     /// RequiredFieldValidator3 control.
     /// </summary>
@@ -82,7 +92,7 @@ public partial class subpages_blog_AddEntry {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-    
+
     /// <summary>
     /// cbxCategories control.
     /// </summary>
@@ -91,7 +101,7 @@ public partial class subpages_blog_AddEntry {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.CheckBoxList cbxCategories;
-    
+
     /// <summary>
     /// sqlDSCategories control.
     /// </summary>
@@ -100,7 +110,7 @@ public partial class subpages_blog_AddEntry {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.SqlDataSource sqlDSCategories;
-    
+
     /// <summary>
     /// btnAddEntry control.
     /// </summary>
@@ -109,7 +119,7 @@ public partial class subpages_blog_AddEntry {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Button btnAddEntry;
-    
+
     /// <summary>
     /// ConfirmButtonExtender1 control.
     /// </summary>

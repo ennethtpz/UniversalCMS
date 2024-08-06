@@ -14,5 +14,6 @@ namespace UniversalCMS.Website.Objects
         public string pubURL { get; set; }
         public string imgURL { get; set; }
         public string imgIcon { get; set; }
+        public string pageId { get; set; }
     }
 }

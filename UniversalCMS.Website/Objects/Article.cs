@@ -11,5 +11,6 @@ namespace UniversalCMS.Website.Objects
         public DateTime dateAdded { get; set; }
         public string articleCode { get; set; }
         public bool isActive { get; set; }
+        public string pageId { get; set; }
     }
 }
