@@ -8,6 +8,7 @@ using UniversalCMS.Website.Objects;
 public partial class subpages_blog_ViewEntry : System.Web.UI.Page
 {
     int id;
+    string pageId;
 
     ArticleManager articleManager = new ArticleManager();
 
@@ -46,8 +47,11 @@ public partial class subpages_blog_ViewEntry : System.Web.UI.Page
             cbxIsActive.Checked = article.isActive;
 
             if (!string.IsNullOrEmpty(article.pageId))
+            {
                 txtPageId.Text = article.pageId;
-
+                pageId = article.pageId;
+            }
+                
             List<Category> allCategories = articleManager.GetAllCategories();
 
             List<ListItem> cats = new List<ListItem>();
@@ -99,6 +103,14 @@ public partial class subpages_blog_ViewEntry : System.Web.UI.Page
             if (txtDate.Text != null &&
                 DateTime.TryParseExact(txtDate.Text.Trim(), "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime dtArticleDate))
             {
+                if (!string.IsNullOrWhiteSpace(txtPageId.Text) 
+                    && (articleManager.GetArticleByPageId(txtPageId.Text) != null)
+                    && (!txtPageId.Text.Equals(pageId, StringComparison.InvariantCultureIgnoreCase)))
+                {
+                    Response.Write("<script>alert('Page ID already exists! Please enter another one.');</script>");
+                    return;
+                }
+
                 articleManager.UpdateArticle(id, dtArticleDate, txtTitle.Text, txtContent.Text, cbxIsActive.Checked, txtPageId.Text);
                 List<Category> existingCategories = articleManager.GetCategoriesForArticle(id);
 

@@ -16,6 +16,13 @@ public partial class subpages_blog_AddEntry : System.Web.UI.Page
                 DateTime.TryParseExact(txtDate.Text.Trim(), "MM/dd/yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime dtArticleDate))
             {
                 ArticleManager articleManager = new ArticleManager();
+
+                if (!string.IsNullOrWhiteSpace(txtPageId.Text) && (articleManager.GetArticleByPageId(txtPageId.Text) != null))
+                {
+                    Response.Write("<script>alert('Page ID already exists! Please enter another one.');</script>");
+                    return;
+                }
+
                 int newArticleID = articleManager.InsertArticle(txtTitle.Text, dtArticleDate, txtContent.Text, txtPageId.Text);
                 foreach (ListItem li in cbxCategories.Items)
                 {
