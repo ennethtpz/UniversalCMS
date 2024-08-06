@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Documents;
 
 namespace UniversalCMS.Website.Functions
 {
@@ -76,9 +77,12 @@ namespace UniversalCMS.Website.Functions
                 {
                     using (DataSet ds = da.ReturnDataSet("SELECT TOP 1 * FROM Articles WHERE pageId=@pageId", param))
                     {
-                        return GetArticleFromDataRow(ds.Tables[0].Rows[0]);
+                        if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                            return GetArticleFromDataRow(ds.Tables[0].Rows[0]);
                     }
                 }
+
+                return null;
             }
             catch (Exception ex)
             {
