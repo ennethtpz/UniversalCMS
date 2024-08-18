@@ -9,8 +9,9 @@
 
 
 
-public partial class subpages_blog_ManageEntries {
-    
+public partial class subpages_blog_ManageEntries
+{
+
     /// <summary>
     /// menu control.
     /// </summary>
@@ -19,7 +20,34 @@ public partial class subpages_blog_ManageEntries {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::masterpages_sidebar menu;
-    
+
+    /// <summary>
+    /// txtSearch control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox txtSearch;
+
+    /// <summary>
+    /// ddlSearchCategory control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.DropDownList ddlSearchCategory;
+
+    /// <summary>
+    /// btnSearch control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button btnSearch;
+
     /// <summary>
     /// btnAddEntry control.
     /// </summary>
@@ -28,7 +56,7 @@ public partial class subpages_blog_ManageEntries {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Button btnAddEntry;
-    
+
     /// <summary>
     /// grdEntries control.
     /// </summary>
@@ -37,7 +65,7 @@ public partial class subpages_blog_ManageEntries {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.GridView grdEntries;
-    
+
     /// <summary>
     /// sqldsEntries control.
     /// </summary>

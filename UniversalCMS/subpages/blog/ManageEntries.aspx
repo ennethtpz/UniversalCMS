@@ -59,11 +59,25 @@
                     </ol>
                 </section>
                 <section class="content"><!-- content -->
-                    <div align="right">
-                        <asp:Button ID="btnAddEntry" runat="server" Text="+ Add New Blog Entry" PostBackUrl="~/addentry" CssClass="btn btn-primary" />
-                        <%--<asp:Button ID="btnManageCategories" runat="server" Text="Manage Blog Categories" PostBackUrl="~/addentry" CssClass="btn btn-primary" />--%>
+                    <div align="left" class="row">
+                        <div class="col-md-6">
+                            <asp:TextBox ID="txtSearch" CssClass="form-control awesomplete" MaxLength="200" runat="server" placeholder="Enter search query here. Leave blank to display all." />
+                        </div>
+                        <div class="col-md-2">
+                            <asp:DropDownList ID="ddlSearchCategory" runat="server" CssClass="form-control awesomplete">
+                                <asp:ListItem Text="- Select Search Criteria -" Value="" />
+                                <asp:ListItem Text="Title" Value="title" />
+                                <asp:ListItem Text="Category" Value="category" />
+                                <asp:ListItem Text="Article ID" Value="articleId" />
+                            </asp:DropDownList>
+                        </div>
+                        <div class="col-md-2">
+                            <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-primary" OnClick="btnSearch_Click" />
+                        </div>
+                        <div class="col-md-2" align="right">
+                            <asp:Button ID="btnAddEntry" runat="server" Text="+ Add New Blog Entry" PostBackUrl="~/addentry" CssClass="btn btn-secondary" />
+                        </div>
                     </div>
-                    <br />
                     <br />
 
                     <asp:GridView ID="grdEntries" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="articleId" DataSourceID="sqldsEntries" CssClass="table table-responsive" EmptyDataText="- No articles added. -">
@@ -90,7 +104,7 @@
                     </asp:GridView>
 
 
-                    <asp:SqlDataSource ID="sqldsEntries" runat="server" ConnectionString="<%$ ConnectionStrings:conn %>" SelectCommand="SELECT [articleId], [title], [dateAdded], [isActive] FROM [Articles] ORDER BY [articleId] DESC"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="sqldsEntries" runat="server" ConnectionString="<%$ ConnectionStrings:conn %>"></asp:SqlDataSource>
 
 
                 </section><!-- /.content -->

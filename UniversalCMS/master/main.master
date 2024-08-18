@@ -63,12 +63,13 @@
     </header>
 
 
-    <form id="form1" runat="server">
-        <%--     <asp:ToolkitScriptManager runat="server">
-     </asp:ToolkitScriptManager>--%>
+    <form id="mainForm" runat="server">
         <asp:ScriptManager runat="server"></asp:ScriptManager>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
+        <footer>
+            <p><a href="https://github.com/turdmaggot/UniversalCMS" target="_blank">UniversalCMS</a> ©<% =DateTime.Now.Year.ToString() + " Version: " + System.Configuration.ConfigurationManager.AppSettings["version"] %></p>
+        </footer>
     </form>
 
     <script src="../../js/jquery.min.js"></script>
