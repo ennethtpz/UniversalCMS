@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Documents;
 
 namespace UniversalCMS.Website.Functions
 {
@@ -143,6 +142,58 @@ namespace UniversalCMS.Website.Functions
                 using (DataAccess da = new DataAccess(_connStringKey))
                 {
                     using (DataSet ds = da.ReturnDataSet("SELECT * FROM Articles ORDER BY dateAdded DESC"))
+                    {
+                        foreach (DataRow row in ds.Tables[0].Rows)
+                        {
+                            articles.Add(GetArticleFromDataRow(row));
+                        }
+
+                        if (articles.Count > 0)
+                            return articles;
+                        else
+                            return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Article> GetArticlesByCategory(List<Category> categories)
+        {
+            try
+            {
+                if (categories == null || categories.Count == 0) return null;
+
+
+                string baseQuery = "SELECT a.* FROM Articles a";
+                baseQuery += " INNER JOIN ArticleCategories b ON a.articleId = b.articleId";
+                baseQuery += " INNER JOIN Categories c ON b.categoryId = c.categoryId WHERE";
+
+                var sqlParams = new List<SqlParameter>();
+
+                int i = 0;
+                foreach (Category category in categories) 
+                {
+                    if (i != 0)
+                        baseQuery += " AND";
+
+                    string paramName = "@cat" + i.ToString();
+                    baseQuery += " c.categoryId=" + paramName;
+                    sqlParams.Add(new SqlParameter(paramName, category.categoryId));
+
+                    i++;
+                }
+
+                baseQuery += " ORDER BY a.dateAdded DESC";
+
+                var articles = new List<Article>();
+
+                using (DataAccess da = new DataAccess(_connStringKey))
+                {
+                    using (DataSet ds = da.ReturnDataSet(baseQuery, sqlParams))
                     {
                         foreach (DataRow row in ds.Tables[0].Rows)
                         {
