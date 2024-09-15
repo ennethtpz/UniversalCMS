@@ -56,6 +56,7 @@
         routeCollection.MapPageRoute("edit post", "viewentry/{id}", "~/subpages/blog/ViewEntry.aspx");
 
         routeCollection.MapPageRoute("manage categories", "managecategories", "~/subpages/blog/ManageCategories.aspx");
+        routeCollection.MapPageRoute("manage entries by category", "managecategoryentries", "~/subpages/blog/ManageEntriesByCategory.aspx");
     }
       
 </script>

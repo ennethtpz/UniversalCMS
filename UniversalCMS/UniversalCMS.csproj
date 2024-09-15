@@ -1946,6 +1946,7 @@
     <Content Include="subpages\blog\AddEntry.aspx" />
     <Content Include="subpages\blog\ManageCategories.aspx" />
     <Content Include="subpages\blog\ManageEntries.aspx" />
+    <Content Include="subpages\blog\ManageEntriesByCategory.aspx" />
     <Content Include="subpages\blog\ViewEntry.aspx" />
     <Content Include="subpages\Default.aspx" />
     <Content Include="subpages\sample\sample1.aspx" />
@@ -2042,6 +2043,13 @@
     </Compile>
     <Compile Include="subpages\blog\ManageEntries.aspx.designer.cs">
       <DependentUpon>ManageEntries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="subpages\blog\ManageEntriesByCategory.aspx.cs">
+      <DependentUpon>ManageEntriesByCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subpages\blog\ManageEntriesByCategory.aspx.designer.cs">
+      <DependentUpon>ManageEntriesByCategory.aspx</DependentUpon>
     </Compile>
     <Compile Include="subpages\blog\ViewEntry.aspx.cs">
       <DependentUpon>ViewEntry.aspx</DependentUpon>

@@ -69,6 +69,8 @@
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="lblCategoryName" runat="server" Text='<%# Bind("category") %>'></asp:Label>
+                                <br />
+                                <asp:LinkButton ID="lblManageArticles" PostBackUrl='<%# Eval("categoryId", "~/managecategoryentries?id={0}") %>' runat="server">Manage Articles of this Category</asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:BoundField DataField="articleCount" HeaderText="# of Articles" ReadOnly="True" SortExpression="articleCount" />
