@@ -9,8 +9,9 @@
 
 
 
-public partial class subpages_Default {
-    
+public partial class subpages_Default
+{
+
     /// <summary>
     /// menu control.
     /// </summary>
@@ -19,4 +20,13 @@ public partial class subpages_Default {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::masterpages_sidebar menu;
+
+    /// <summary>
+    /// lblVersion control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblVersion;
 }

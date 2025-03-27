@@ -58,8 +58,7 @@
                     </ol>
                 </section>
                 <section class="content"><!-- content -->
-
-
+                    <asp:Label ID="lblVersion" runat="server" />
 
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
