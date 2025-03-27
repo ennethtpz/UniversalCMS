@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>UniversalCMS.Website</id>
+    <version>1.2.0</version>
+    <title>UniversalCMS.Website</title>
+    <authors>reinmann</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <!-- <icon>icon.png</icon> -->
+    <projectUrl>https://github.com/ennethtpz/UniversalCMS</projectUrl>
+    <description>Use to be able to link UniversalCMS with your website.</description>
+    <releaseNotes>Added new features.</releaseNotes>
+    <copyright>2025</copyright>
+    <tags>UniversalCMS</tags>
+  </metadata>
+</package>
